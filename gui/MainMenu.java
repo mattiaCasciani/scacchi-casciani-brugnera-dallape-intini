@@ -33,4 +33,5 @@ public class MainMenu extends javax.swing.JPanel {
     private void exitBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBTNActionPerformed
         System.exit(0);
     }//GEN-LAST:event_exitBTNActionPerformed
+    
 }
