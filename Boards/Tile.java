@@ -23,4 +23,7 @@ public class Tile implements java.io.Serializable{
         this.coordinate.setX(x);
         this.coordinate.setY(y);
     }
+    
+    public void setCoordinate(Coordinate coordinate){this.coordinate = coordinate;}
+
 }
