@@ -11,4 +11,6 @@ public class ClientPairingThread extends Thread {
         this.client = client;
   }
   
+  public void run() {}
+  
 }
