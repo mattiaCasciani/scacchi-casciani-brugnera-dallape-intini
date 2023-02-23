@@ -31,5 +31,20 @@ public class SClient {
             Logger.getLogger(SClient.class.getName()).log(Level.SEVERE, null, ex);
         }
   }
+    
+    public void Send(Object msg)
+    {
+        try {
+            this.cOutput.writeObject(msg);
+        } catch (IOException ex) {
+            Logger.getLogger(SClient.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void Listen() {
+        this.clientListenThread.start();
+    }
+    
+    
 
 }
