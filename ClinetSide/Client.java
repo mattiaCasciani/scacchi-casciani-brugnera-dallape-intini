@@ -41,6 +41,11 @@ public class Client {
             System.out.println("Non riesco a connettermi.");
         }
     }
+    
+    public void Stop() {
+        
+    }
+    
 }
 
 
