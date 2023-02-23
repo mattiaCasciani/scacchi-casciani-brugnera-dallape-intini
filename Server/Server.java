@@ -19,7 +19,17 @@ public class Server {
     public static Semaphore pairingLockForTwoPair = new Semaphore(1, true);
   
     public Server(int port) {
-        
+        try {
+            this.port = port;
+            this.socket = new ServerSocket(this.port);
+            this.listenConnectionRequestThread = new ListenConnectionRequestThread(this);
+            removingControlThread = new ClientRemovingControlThread(this);
+            this.clients = new ArrayList<SClient>();
+            
+        } catch (IOException ex) {
+            System.out.println("There is an error occured when opening the server on port:" + this.port);
+
+        }
     }
 }
 
