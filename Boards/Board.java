@@ -65,6 +65,12 @@ public class Board implements java.io.Serializable{
         return getTile(coordinate.getX(), coordinate.getY());
     }
     
-    public Tile getTile(int x, int y){return null}
+    public Tile getTile(int x, int y){
+        if (x < 0 || x > 7 || y < 0 || y > 7) {
+            System.out.println("Get Tile Index Bound Of Array");
+            return null;
+        }
+        return tiles[x][y];
+    }
 
 }
