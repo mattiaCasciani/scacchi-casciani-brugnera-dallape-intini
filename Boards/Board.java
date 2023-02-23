@@ -72,5 +72,8 @@ public class Board implements java.io.Serializable{
         }
         return tiles[x][y];
     }
+    
+    
+    public Coordinate getCoordOfGivenTeamPiece(Team team, PieceTypes pieceType) {return null;}
 
 }
