@@ -32,5 +32,4 @@ public class Tile implements java.io.Serializable{
     public String toString() {
         return coordinate.toString() + " Piece "+ ((hasPiece() ? piece.toString() : "Empty"));
     }
-    
 }
