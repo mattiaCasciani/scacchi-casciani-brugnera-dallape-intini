@@ -16,4 +16,8 @@ import javax.swing.JOptionPane;
 
 public class ClientListenThread extends Thread {
     Client client;
+    
+    public ClientListenThread(Client client) {
+        this.client = client;
+    }
 }
