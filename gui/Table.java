@@ -67,4 +67,6 @@ public class Table {
         });
         this.gameFrame.add(mainMenu, BorderLayout.CENTER);
     }
+    
+    public void createGamePanel(){}
 }
