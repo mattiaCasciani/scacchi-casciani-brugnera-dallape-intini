@@ -37,7 +37,20 @@ public class Server {
     }
     
     public static void SendMessage(SClient client, Message message) {
-        
+        try {
+            client.cOutput.writeObject(message);
+        } catch (IOException ex) {
+            Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public static void SendMessage(SClient client, String message) {
+        try {
+            client.cOutput.writeObject(message);
+        } catch (IOException ex) {
+            Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 }
 
