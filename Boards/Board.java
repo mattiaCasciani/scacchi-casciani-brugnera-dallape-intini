@@ -88,6 +88,12 @@ public class Board implements java.io.Serializable{
         return null;
     }
     
-    public void changeCurrentPlayer(){}
+    public void changeCurrentPlayer(){
+        if (currentPlayer == whitePlayer) {
+            currentPlayer = blackPlayer;
+        } else {
+            currentPlayer = whitePlayer;
+        }
+    }
 
 }
