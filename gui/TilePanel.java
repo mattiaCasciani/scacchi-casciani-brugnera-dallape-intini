@@ -23,11 +23,9 @@ import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
-/**
- *
- *
- */
-//This class is the visual version of every Tile class in Board class
+
+
+
 public class TilePanel extends JPanel {
 
     Coordinate coordinate;
@@ -41,5 +39,98 @@ public class TilePanel extends JPanel {
         setPreferredSize(new Dimension(BOARD_Configurations.TILE_SIZE, BOARD_Configurations.TILE_SIZE));
         assignTileColor(chessBoard);
         assignTilePieceIcon(chessBoard);
+        addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (client.getTeam() != chessBoard.getCurrentPlayer().getTeam()) {
+                    return;
+                }
+
+                if (!chessBoard.hasChosenTile()) { 
+                    if (chessBoard.getTile(coordinate).hasPiece()) {
+                        if (chessBoard.getCurrentPlayer().getTeam() != chessBoard.getTile(coordinate).getPiece().getTeam()) {
+                            return;
+                        }
+                    }
+
+                    chessBoard.setChosenTile(chessBoard.getTile(coordinate));
+
+                } else {
+                    Tile destinationTile = chessBoard.getTile(coordinate); 
+                    if (MoveUtilities.isValidMove(chessBoard, destinationTile)) {
+                        Move move = new Move(chessBoard, chessBoard.getChosenTile(), destinationTile);
+                        chessBoard.getCurrentPlayer().makeMove(chessBoard, move);
+                        if (move.hasKilledPiece()) {
+                            client.game.getBottomGameMenu().killedPiecesListModel.addElement(move.getKilledPiece().toString());
+                        }
+                       
+                        Message msg = new Message(Message.MessageTypes.MOVE);
+                        MovementMessage movement = new MovementMessage();
+                        movement.currentCoordinate = move.getCurrentTile().getCoordinate();
+                        movement.destinationCoordinate = move.getDestinationTile().getCoordinate();
+                        if (move.getKilledPiece() != null) {
+                            movement.isPieceKilled = true;
+                        }
+                        msg.content = (Object) movement;
+                        client.Send(msg);
+                        chessBoard.changeCurrentPlayer();
+                        client.game.getBottomGameMenu().getTurnLBL().setText("Enemy Turn");
+                        client.game.getBottomGameMenu().getTurnLBL().setForeground(Color.RED);
+
+                        if (move.hasKilledPiece()) {
+                            if (move.getKilledPiece().getType() == PieceTypes.KING) {
+                                Team winnerTeam;
+                                winnerTeam = (move.getKilledPiece().getTeam() == Team.BLACK) ? Team.WHITE : Team.BLACK;
+                                JOptionPane.showMessageDialog(null, "Winner: " + winnerTeam.toString());
+                                Message message = new Message(Message.MessageTypes.END);
+                                message.content = null;
+                                client.Send(message);
+                            }
+                        }
+
+                    } else {
+                        if (destinationTile.hasPiece()) {
+                            if (chessBoard.getCurrentPlayer().getTeam() != chessBoard.getTile(coordinate).getPiece().getTeam()) {
+                                return;
+                            }
+                        }
+                        chessBoard.setChosenTile(destinationTile);
+
+                    }
+                    if (MoveUtilities.controlCheckState(chessBoard, Team.BLACK)) {
+                        JOptionPane.showMessageDialog(null, "Check state for team : " + Team.BLACK.toString());
+
+                        
+                        Message msg = new Message(Message.MessageTypes.CHECK);
+                        msg.content = (Object) Team.BLACK;
+                        client.Send(msg);
+                    } else if (MoveUtilities.controlCheckState(chessBoard, Team.WHITE)) {
+                        JOptionPane.showMessageDialog(null, "Check state for team : " + Team.WHITE.toString());
+                        Message msg = new Message(Message.MessageTypes.CHECK);
+                        msg.content = (Object) Team.WHITE;
+                        client.Send(msg);
+                    }
+                }
+                boardPanel.updateBoardGUI(chessBoard);
+
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+            }
+        });
+        validate();
     }
 }
