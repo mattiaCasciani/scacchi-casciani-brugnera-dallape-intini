@@ -39,5 +39,32 @@ public class Table {
         this.gameFrame.setVisible(true);
     }
     
-    public void createMainMenu(){}
+    public void createMainMenu(){
+        this.mainMenu.getInfoLBL().setText("");
+        this.mainMenu.getInfoLBL().setVisible(false);
+        this.mainMenu.getPlayBTN().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                if (client.isPaired == false) {
+                    mainMenu.getInfoLBL().setVisible(true);
+                    mainMenu.getInfoLBL().setText("Cerco Partita...");
+                    mainMenu.getPlayBTN().setEnabled(false);
+                    Message msg = new Message(Message.MessageTypes.PAIRING);
+                    msg.content = "ESLESME";
+                    client.Send(msg);
+                }
+                if (client.isPaired == true) {
+                    mainMenu.getInfoLBL().setText("Partita Trovata");
+                    mainMenu.getInfoLBL().setText("Partita sta iniziando...");
+                    mainMenu.getPlayBTN().setEnabled(true);
+                    mainMenu.getInfoLBL().setText("");
+                    mainMenu.getInfoLBL().setVisible(false);
+                    createGamePanel();
+                }
+
+            }
+        });
+        this.gameFrame.add(mainMenu, BorderLayout.CENTER);
+    }
 }
