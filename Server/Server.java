@@ -31,5 +31,13 @@ public class Server {
 
         }
     }
+    
+    public void ListenClientConnectionRequests() {
+        this.listenConnectionRequestThread.start();
+    }
+    
+    public static void SendMessage(SClient client, Message message) {
+        
+    }
 }
 
