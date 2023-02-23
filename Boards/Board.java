@@ -11,4 +11,32 @@ public class Board implements java.io.Serializable{
     private Player blackPlayer;
     private Player currentPlayer;
     private Tile chosenTile = null;
+    
+    public Board() {
+        whitePlayer = new Player(Team.WHITE);
+        blackPlayer = new Player(Team.BLACK);
+        currentPlayer = whitePlayer;
+        tiles = BoardUtilities.createStandartBoardTiles();
+
+    }
+    
+    public Player getWhitePlayer() {
+        return whitePlayer;
+    }
+
+    public Player getBlackPlayer() {
+        return blackPlayer;
+    }
+
+    public Player getCurrentPlayer() {
+        return currentPlayer;
+    }
+
+    public void setCurrentPlayer(Player currentPlayer) {
+        this.currentPlayer = currentPlayer;
+    }
+
+    public Tile getChosenTile() {
+        return chosenTile;
+    }
 }
