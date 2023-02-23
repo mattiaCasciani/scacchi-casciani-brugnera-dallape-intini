@@ -21,4 +21,24 @@ public class InGameBottomMenu extends javax.swing.JPanel {
         killedPiecesListModel = new DefaultListModel();
         killedPiecesLIST.setModel(killedPiecesListModel);
     }
+    
+    public JLabel getPlayersColorLBL() {
+        return playersColorLBL;
+    }
+
+    public JList<String> getKilledPiecesLIST() {
+        return killedPiecesLIST;
+    }
+
+    public void setKilledPiecesLIST(JList<String> killedPiecesLIST) {
+        this.killedPiecesLIST = killedPiecesLIST;
+    }
+
+    public JLabel getTurnLBL() {
+        return turnLBL;
+    }
+
+    public void setTurnLBL(JLabel turnLBL) {
+        this.turnLBL = turnLBL;
+    }
 }
