@@ -37,6 +37,7 @@ public class Table {
         }
         createMainMenu();
         this.gameFrame.setVisible(true);
-
     }
+    
+    public void createMainMenu(){}
 }
