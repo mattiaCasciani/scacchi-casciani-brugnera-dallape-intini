@@ -39,4 +39,6 @@ public class Board implements java.io.Serializable{
     public Tile getChosenTile() {
         return chosenTile;
     }
+    
+    public boolean hasChosenTile(){return false}
 }
