@@ -19,6 +19,17 @@ public class SClient {
     public boolean isWantToPair = false;
     public ClientPairingThread pairingThread;
   
-  public SClient(Socket socket) {}
+  public SClient(Socket socket) {
+    try {
+            this.socket = socket;
+            this.cOutput = new ObjectOutputStream(this.socket.getOutputStream());
+            this.cInput = new ObjectInputStream(this.socket.getInputStream());
+            this.clientListenThread = new ClientListenThread(this);
+            this.pairingThread = new ClientPairingThread(this);
+            this.isPaired = false;
+        } catch (IOException ex) {
+            Logger.getLogger(SClient.class.getName()).log(Level.SEVERE, null, ex);
+        }
+  }
 
 }
