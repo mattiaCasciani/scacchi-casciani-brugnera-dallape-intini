@@ -87,5 +87,7 @@ public class Board implements java.io.Serializable{
         }
         return null;
     }
+    
+    public void changeCurrentPlayer(){}
 
 }
