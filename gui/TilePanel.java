@@ -141,5 +141,7 @@ public class TilePanel extends JPanel {
     public void setCoordinate(Coordinate coordinate) {
         this.coordinate = coordinate;
     }
+    
+    public void assignTilePieceIcon(Board board){}
 
 }
