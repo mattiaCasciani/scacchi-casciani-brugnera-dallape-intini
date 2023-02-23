@@ -26,4 +26,6 @@ public class Tile implements java.io.Serializable{
     
     public void setCoordinate(Coordinate coordinate){this.coordinate = coordinate;}
 
+    public boolean hasPiece(){return this.piece != null;}
+
 }
