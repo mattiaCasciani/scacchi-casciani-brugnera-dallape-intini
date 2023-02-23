@@ -57,7 +57,11 @@ public class Client {
     }
     
     public void Send(Object message) {
-        
+        try {
+            this.sOutput.writeObject(message);
+        } catch (IOException ex) {
+            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }
