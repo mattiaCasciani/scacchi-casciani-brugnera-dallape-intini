@@ -7,4 +7,8 @@ import java.util.logging.Logger;
 
 public class ClientListenThread extends Thread {
   SClient client;
+  
+  public ClientListenThread(SClient client) {
+        this.client = client;
+    }
 }
