@@ -64,5 +64,7 @@ public class Board implements java.io.Serializable{
     public Tile getTile(Coordinate coordinate) {
         return getTile(coordinate.getX(), coordinate.getY());
     }
+    
+    public Tile getTile(int x, int y){return null}
 
 }
