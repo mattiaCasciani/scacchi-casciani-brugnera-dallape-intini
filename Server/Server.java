@@ -44,9 +44,9 @@ public class Server {
         }
     }
     
-    public static void SendMessage(SClient client, String message) {
+    public static void SendMessage(SClient client, Object object) {
         try {
-            client.cOutput.writeObject(message);
+            client.cOutput.writeObject(object);
         } catch (IOException ex) {
             Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
         }
