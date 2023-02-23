@@ -53,5 +53,11 @@ public class Board implements java.io.Serializable{
         return true;
     }
     
-    public void setChosenTile(Tile chosenTile){}
+    public void setChosenTile(Tile chosenTile){
+        if (!chosenTile.hasPiece()) {
+            this.chosenTile = null;
+        } else {
+            this.chosenTile = chosenTile;
+        }
+    }
 }
