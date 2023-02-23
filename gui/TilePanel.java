@@ -178,5 +178,4 @@ public class TilePanel extends JPanel {
         }
         this.setBorder(BorderFactory.createLineBorder(Color.BLACK));
     }
-
 }
