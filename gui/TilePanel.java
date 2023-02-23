@@ -159,5 +159,7 @@ public class TilePanel extends JPanel {
             pieceIcon.validate();
         }
     }
+    
+    public void assignTileColor(Board board){}
 
 }
