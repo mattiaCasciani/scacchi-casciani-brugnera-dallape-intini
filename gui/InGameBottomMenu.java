@@ -96,5 +96,4 @@ public class InGameBottomMenu extends javax.swing.JPanel {
                 .addGap(17, 17, 17))
         );
     }// </editor-fold>//GEN-END:initComponents
-    
 }
