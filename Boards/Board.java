@@ -74,6 +74,18 @@ public class Board implements java.io.Serializable{
     }
     
     
-    public Coordinate getCoordOfGivenTeamPiece(Team team, PieceTypes pieceType) {return null;}
+    public Coordinate getCoordOfGivenTeamPiece(Team team, PieceTypes pieceType) {
+        for (int i = 0; i < BOARD_Configurations.ROW_COUNT; i++) {
+            for (int j = 0; j < BOARD_Configurations.ROW_TILE_COUNT; j++) {
+                if (!tiles[i][j].hasPiece()) {
+                    continue;
+                }
+                if (tiles[i][j].getPiece().getTeam() == team && tiles[i][j].getPiece().getType() == pieceType) {
+                    return tiles[i][j].getCoordinate();
+                }
+            }
+        }
+        return null;
+    }
 
 }
