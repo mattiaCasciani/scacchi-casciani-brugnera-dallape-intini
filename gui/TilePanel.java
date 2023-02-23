@@ -133,4 +133,13 @@ public class TilePanel extends JPanel {
         });
         validate();
     }
+    
+    public Coordinate getCoordinate() {
+        return coordinate;
+    }
+
+    public void setCoordinate(Coordinate coordinate) {
+        this.coordinate = coordinate;
+    }
+
 }
