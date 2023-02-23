@@ -19,4 +19,5 @@ public class Tile implements java.io.Serializable{
     
     public Coordinate getCoordinate() {return this.coordinate;}
     
+    public void setCoordinate(int x, int y){}
 }
