@@ -44,7 +44,4 @@ public class SClient {
     public void Listen() {
         this.clientListenThread.start();
     }
-    
-    
-
 }
