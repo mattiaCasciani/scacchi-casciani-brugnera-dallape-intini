@@ -12,5 +12,42 @@ public class ClientListenThread extends Thread {
         this.client = client;
     }
   
-  public void run() {}
+  @Override
+  public void run() {
+    while (!this.client.socket.isClosed()) {
+
+            try {
+                Message msg = (Message) (this.client.cInput.readObject());
+                switch (msg.type) {
+                    case PAIRING:
+                        this.client.isWantToPair = true;
+                        this.client.pairingThread.start();
+                        break;
+                    case MOVE:
+                        this.client.pair.Send(msg);
+                        break;
+                    case CHECK:
+                        this.client.pair.Send(msg);
+                        break;
+                    case END:
+                        this.client.isPaired = false;
+                        this.client.isWantToPair = false;
+                        this.client.pair = null;
+
+                    case LEAVE:
+                        this.client.isPaired = false;
+                        this.client.isWantToPair = false;
+                        this.client.pair.isWantToPair = false;
+                        this.client.pair.isPaired = false;
+                        this.client.pair.pair = null;
+                        this.client.pair = null;
+
+                }
+            } catch (IOException ex) {
+                Logger.getLogger(ClientListenThread.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(ClientListenThread.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+  }
 }
