@@ -20,4 +20,6 @@ public class ClientListenThread extends Thread {
     public ClientListenThread(Client client) {
         this.client = client;
     }
+    
+    public void run() {}
 }
