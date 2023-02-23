@@ -56,6 +56,10 @@ public class Client {
         }
     }
     
+    public void Send(Object message) {
+        
+    }
+    
 }
 
 
