@@ -27,7 +27,19 @@ public class Client {
     }
     
     public void Connect(String serverIP, int port) {
-        
+        try {
+            System.out.println("Connessione al server");
+            this.serverIP = serverIP;
+            this.serverPort = port;
+            this.socket = new Socket(this.serverIP, this.serverPort);
+            System.out.println("Connessione");
+            sOutput = new ObjectOutputStream(this.socket.getOutputStream());
+            sInput = new ObjectInputStream(this.socket.getInputStream());
+            listenThread = new ClientListenThread(this);
+            this.listenThread.start();
+        } catch (IOException ex) {
+            System.out.println("Non riesco a connettermi.");
+        }
     }
 }
 
