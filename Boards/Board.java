@@ -52,4 +52,6 @@ public class Board implements java.io.Serializable{
         }
         return true;
     }
+    
+    public void setChosenTile(Tile chosenTile){}
 }
