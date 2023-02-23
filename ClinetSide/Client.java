@@ -21,4 +21,14 @@ public class Client {
     public int serverPort;
     public ClientListenThread listenThread;
     public Table game;
+    
+     public Client(Table game) {
+        this.game = game;
+    }
+    
+    public void Connect(String serverIP, int port) {
+        
+    }
 }
+
+
