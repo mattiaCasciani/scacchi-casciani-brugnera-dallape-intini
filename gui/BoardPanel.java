@@ -33,5 +33,7 @@ public class BoardPanel extends JPanel {
     public TilePanel[][] getBoardTiles() { return boardTiles;}
     
     public void setBoardTiles(TilePanel[][] boardTiles) {this.boardTiles = boardTiles;}
+    
+    public void updateBoardGUI(Board board){}
 
 }
