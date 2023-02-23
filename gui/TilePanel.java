@@ -160,6 +160,23 @@ public class TilePanel extends JPanel {
         }
     }
     
-    public void assignTileColor(Board board){}
+    public void assignTileColor(Board board){
+        if (this.coordinate.getX() % 2 == 0 && this.coordinate.getY() % 2 == 0) {
+            this.setBackground(GUI_Configurations.creamColor);
+        } else if (this.coordinate.getX() % 2 == 0 && this.coordinate.getY() % 2 == 1) {
+            this.setBackground(GUI_Configurations.lightCyanColor);
+        } else if (this.coordinate.getX() % 2 == 1 && this.coordinate.getY() % 2 == 0) {
+            this.setBackground(GUI_Configurations.lightCyanColor);
+        } else if (this.coordinate.getX() % 2 == 1 && this.coordinate.getY() % 2 == 1) {
+            this.setBackground(GUI_Configurations.creamColor);
+        }
+        if (board.hasChosenTile()) {
+            if (this.coordinate.equals(board.getChosenTile().getCoordinate())) {
+                this.setBackground(Color.GREEN);
+            }
+
+        }
+        this.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+    }
 
 }
