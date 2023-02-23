@@ -142,6 +142,22 @@ public class TilePanel extends JPanel {
         this.coordinate = coordinate;
     }
     
-    public void assignTilePieceIcon(Board board){}
+    public void assignTilePieceIcon(Board board){
+        Tile thisTile = board.getTile(this.coordinate);
+        if (thisTile == null) {
+            System.out.println("Tile is null");
+            return;
+
+        }
+        if (thisTile.hasPiece()) {
+            //JLabel pieceIcon = new JLabel(BoardUtilities.getImageOfTeamPiece(thisTile.getPiece().getTeam(), thisTile.getPiece().getType()));
+            //this.add(pieceIcon);
+            pieceIcon.setIcon(BoardUtilities.getImageOfTeamPiece(thisTile.getPiece().getTeam(), thisTile.getPiece().getType()));
+            pieceIcon.validate();
+        } else if (!thisTile.hasPiece()) {
+            pieceIcon.setIcon(null);
+            pieceIcon.validate();
+        }
+    }
 
 }
