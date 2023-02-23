@@ -97,4 +97,53 @@ public class Table {
 
         this.gameFrame.setVisible(true);
     }
+    
+    public MainMenu getMainMenu() {
+        return mainMenu;
+    }
+
+    public void setMainMenu(MainMenu mainMenu) {
+        this.mainMenu = mainMenu;
+    }
+
+    public InGameBottomMenu getBottomGameMenu() {
+        return bottomGameMenu;
+    }
+
+    public void setBottomGameMenu(InGameBottomMenu bottomGameMenu) {
+        this.bottomGameMenu = bottomGameMenu;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public JFrame getGameFrame() {
+        return gameFrame;
+    }
+
+    public BoardPanel getBoardPanel() {
+        return boardPanel;
+    }
+
+    public void setBoardPanel(BoardPanel boardPanel) {
+        this.boardPanel = boardPanel;
+    }
+
+    public Board getChessBoard() {
+        return chessBoard;
+    }
+
+    public void setChessBoard(Board chessBoard) {
+        this.chessBoard = chessBoard;
+    }
+
+    public void setGameFrame(JFrame gameFrame) {
+        this.gameFrame = gameFrame;
+    }
+
 }
