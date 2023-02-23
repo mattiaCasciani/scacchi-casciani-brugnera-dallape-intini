@@ -34,6 +34,13 @@ public class BoardPanel extends JPanel {
     
     public void setBoardTiles(TilePanel[][] boardTiles) {this.boardTiles = boardTiles;}
     
-    public void updateBoardGUI(Board board){}
+    public void updateBoardGUI(Board board){
+        for (int i = 0; i < BOARD_Configurations.ROW_COUNT; i++) {
+            for (int j = 0; j < BOARD_Configurations.ROW_TILE_COUNT; j++) {
+                boardTiles[i][j].assignTileColor(board);
+                boardTiles[i][j].assignTilePieceIcon(board);
+            }
+        }
+    }
 
 }
