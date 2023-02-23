@@ -5,4 +5,10 @@ import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class ListenConnectionRequestThread extends Thread {}
+public class ListenConnectionRequestThread extends Thread {
+  private Server server;
+  
+  public ListenConnectionRequestThread(Server server) {
+        this.server = server;
+    }
+}
