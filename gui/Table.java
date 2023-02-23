@@ -68,5 +68,33 @@ public class Table {
         this.gameFrame.add(mainMenu, BorderLayout.CENTER);
     }
     
-    public void createGamePanel(){}
+    public void createGamePanel(){
+        this.gameFrame.remove(mainMenu);
+        this.chessBoard = new Board();
+        this.boardPanel = new BoardPanel(this.chessBoard, this.client);
+        this.bottomGameMenu = new InGameBottomMenu();
+
+        if(this.client.getTeam().toString() == "black"){
+            this.bottomGameMenu.getPlayersColorLBL().setText("Il tuo colore è il nero");
+        }else{
+            this.bottomGameMenu.getPlayersColorLBL().setText("Il tuo colore è il bianco");
+        }
+
+
+        if(this.client.getTeam() == Team.WHITE)
+        {
+            this.bottomGameMenu.getTurnLBL().setText("GIOCA!");
+            this.bottomGameMenu.getTurnLBL().setForeground(Color.GREEN);
+        }
+        else
+        {
+            this.bottomGameMenu.getTurnLBL().setText("Turno dell'avversario");
+            this.bottomGameMenu.getTurnLBL().setForeground(Color.RED);
+        }    
+        this.gameFrame.add(boardPanel);
+        this.gameFrame.add(this.boardPanel, BorderLayout.CENTER);
+        this.gameFrame.add(this.bottomGameMenu, BorderLayout.PAGE_END);
+
+        this.gameFrame.setVisible(true);
+    }
 }
