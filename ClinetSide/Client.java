@@ -43,7 +43,17 @@ public class Client {
     }
     
     public void Stop() {
-        
+        if (this.socket != null) {
+
+            try {
+                this.socket.close();
+                this.sOutput.flush();
+                this.sOutput.close();
+                this.sInput.close();
+            } catch (IOException ex) {
+                Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
     
 }
