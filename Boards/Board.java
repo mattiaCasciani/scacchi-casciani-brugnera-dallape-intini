@@ -95,5 +95,6 @@ public class Board implements java.io.Serializable{
             currentPlayer = whitePlayer;
         }
     }
+    public Tile getTileOfGivenTeamPiece(Team team, PieceTypes pieceType) {return null;}
 
 }
