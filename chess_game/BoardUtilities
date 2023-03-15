@@ -11,3 +11,10 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
 public class BoardUtilities {
+
+    public static boolean isValidCoordinate(Coordinate coord) {
+    
+    }
+
+
+}
