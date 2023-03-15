@@ -1,3 +1,5 @@
 public class King extends Piece {
 
+    private boolean castlingDone = false;
+
 }
