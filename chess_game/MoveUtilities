@@ -22,4 +22,6 @@ public class MoveUtilities {
         return false;
   }
   
+  public static boolean controlCheckState(Board board, Team team) {
+  
 }
