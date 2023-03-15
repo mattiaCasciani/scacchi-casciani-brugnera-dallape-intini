@@ -30,6 +30,11 @@ public class Coordinate implements java.io.Serializable{
         return "[X:"+x +", Y:"+y+"]";
     }
     
+    public Coordinate plus(Coordinate coord)
+    {
+        return new Coordinate(this.x + coord.getX(),this.y+coord.getY());
+    }
+    
     
     public boolean equals(Object obj) {
         return (((Coordinate)obj).getX() == this.x && ((Coordinate)obj).getY() == this.y); 
