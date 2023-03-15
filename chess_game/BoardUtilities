@@ -16,9 +16,48 @@ public class BoardUtilities {
         return (coord.getX() >= BOARD_Configurations.BOARD_LOWER_BOUND && coord.getX() <= BOARD_Configurations.BOARD_UPPER_BOUND && coord.getY() >= BOARD_Configurations.BOARD_LOWER_BOUND && coord.getY() <= BOARD_Configurations.BOARD_UPPER_BOUND);
     }
     
-public static ImageIcon getImageOfTeamPiece(Team team, PieceTypes pieceType) {
+  public static ImageIcon getImageOfTeamPiece(Team team, PieceTypes pieceType) {
+        String currentPath = null;
+        try {
+            currentPath = new File(".").getCanonicalPath();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        String imagePath = currentPath+"\\ChessProject\\src\\main\\java\\chess_game\\Img\\";
+        if (team == null || pieceType == null) {
+            imagePath += "transparent.png";
+        } else {
+            if (team == Team.BLACK) {
+                imagePath += "black";
+            } else {
+                imagePath += "white";
+            }
+            if (pieceType == PieceTypes.BISHOP) {
+                imagePath += "Bishop.png";
+            } else if (pieceType == PieceTypes.KING) {
+                imagePath += "King.png";
+            } else if (pieceType == PieceTypes.QUEEN) {
+                imagePath += "Queen.png";
+            } else if (pieceType == PieceTypes.KNIGHT) {
+                imagePath += "Knight.png";
+            } else if (pieceType == PieceTypes.PAWN) {
+                imagePath += "Pawn.png";
+            } else if (pieceType == PieceTypes.ROOK) {
+                imagePath += "Rook.png";
+            }
+        }
+        try {
+            File img = new File(imagePath);
+            System.out.println(imagePath);
+            BufferedImage bufferedImage = ImageIO.read(img);
+            ImageIcon imageIcon = new ImageIcon(bufferedImage);
+            return imageIcon;
 
-}
+        } catch (IOException ex) {
+            Logger.getLogger(BOARD_Configurations.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
 
 
 }
