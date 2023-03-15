@@ -10,4 +10,8 @@ import chess_game.Resources.PIECE_Configurations;
 
 public class MoveUtilities {
   
+  public static boolean isValidMove(Board board, Tile destinationTile) {
+  
+  }
+  
 }
