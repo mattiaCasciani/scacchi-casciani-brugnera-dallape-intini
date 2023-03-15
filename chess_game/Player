@@ -18,5 +18,8 @@ public Player(Team team)
     
     public void makeMove(Board board, Move move)
     {
+        board.getTile(move.getDestinationTile().getCoordinate()).setPiece(move.getCurrentTile().getPiece());
+        board.getTile(move.getCurrentTile().getCoordinate()).setPiece(null);
+   
     }
 }
