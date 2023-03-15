@@ -1,3 +1,8 @@
 public abstract class Piece implements java.io.Serializable{
 
+    private boolean killed = false;
+    private Team team; 
+    private PieceTypes type;
+
+
 }
