@@ -11,7 +11,15 @@ import chess_game.Resources.PIECE_Configurations;
 public class MoveUtilities {
   
   public static boolean isValidMove(Board board, Tile destinationTile) {
-  
+   if (!board.hasChosenTile()) {
+            return false;
+        }
+        for (Move m : board.getChosenTile().getPiece().availableMoves(board, board.getChosenTile().getCoordinate())) {
+            if (m.getDestinationTile().getCoordinate().equals(destinationTile.getCoordinate())) {
+                return true;
+            }
+        }
+        return false;
   }
   
 }
