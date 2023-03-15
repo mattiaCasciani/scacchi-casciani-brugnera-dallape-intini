@@ -1,0 +1,3 @@
+public class Coordinate implements java.io.Serializable{ 
+
+}
