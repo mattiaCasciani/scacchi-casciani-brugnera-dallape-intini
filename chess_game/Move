@@ -1,0 +1,12 @@
+
+package chess_game.Move;
+
+import chess_game.Boards.Board;
+import chess_game.Boards.Tile;
+import chess_game.Pieces.Piece;
+
+public class Move implements java.io.Serializable{
+
+    
+}
+
