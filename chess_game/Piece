@@ -9,6 +9,8 @@ public abstract class Piece implements java.io.Serializable{
         this.setTeam(team);
         this.setType(type);
     }
+    
+    public abstract List<Move> availableMoves(Board board, Coordinate currentCoord);
 
     public PieceTypes getType() {
         return type;
