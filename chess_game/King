@@ -1,5 +1,17 @@
 public class King extends Piece {
 
     private boolean castlingDone = false;
+    
+        public boolean isCastlingDone() {
+        return castlingDone;
+    }
+
+    public void setCastlingDone(boolean castlingDone) {
+        this.castlingDone = castlingDone;
+    }
+
+    public King(Team team) {
+        super(team, PieceTypes.KING);
+    }
 
 }
