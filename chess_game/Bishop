@@ -2,4 +2,11 @@ public class Bishop extends Piece {
      public Bishop(Team team) {
         super(team, PieceTypes.BISHOP);
     }
+    
+    
+    
+    public List<Move> availableMoves(Board board, Coordinate currentCoord) {
+        
+    }
+
 }
