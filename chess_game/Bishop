@@ -5,9 +5,7 @@ public class Bishop extends Piece {
     
     
     
-    public List<Move> availableMoves(Board board, Coordinate currentCoord) {
-    
-    public List<Move> availableMoves(Board board, Coordinate currentCoord) {
+     public List<Move> availableMoves(Board board, Coordinate currentCoord) {
         List<Move> possibleMoves = new ArrayList<Move>();
         Tile currentTile = board.getTile(currentCoord);
         Tile destinationTile;
@@ -29,8 +27,6 @@ public class Bishop extends Piece {
                 }
             }
         }
-
-        
+        return possibleMoves;
     }
-
 }
