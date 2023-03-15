@@ -12,8 +12,8 @@ import javax.swing.ImageIcon;
 
 public class BoardUtilities {
 
-    public static boolean isValidCoordinate(Coordinate coord) {
-    
+       public static boolean isValidCoordinate(Coordinate coord) {
+        return (coord.getX() >= BOARD_Configurations.BOARD_LOWER_BOUND && coord.getX() <= BOARD_Configurations.BOARD_UPPER_BOUND && coord.getY() >= BOARD_Configurations.BOARD_LOWER_BOUND && coord.getY() <= BOARD_Configurations.BOARD_UPPER_BOUND);
     }
 
 
