@@ -35,4 +35,21 @@ public class PIECE_Configurations {
 
     public static Map<Team, Map> PAWN_MOVES; 
 
+
+        static {
+        PAWN_MOVES = new HashMap<>();
+        Map<String, Coordinate[]> whitePawnMoves = new HashMap<>();
+        Map<String, Coordinate[]> blackPawnMoves = new HashMap<>();
+        whitePawnMoves.put("Normal", WHITE_PAWN_NORMAL_MOVES);
+        whitePawnMoves.put("Attack", WHITE_PAWN_ATTACK_MOVES);
+        whitePawnMoves.put("Start", WHITE_PAWN_START_MOVES);
+        blackPawnMoves.put("Normal", BLACK_PAWN_NORMAL_MOVES);
+        blackPawnMoves.put("Attack", BLACK_PAWN_ATTACK_MOVES);
+        blackPawnMoves.put("Start", BLACK_PAWN_START_MOVES);
+        PAWN_MOVES.put(Team.WHITE, whitePawnMoves);
+        PAWN_MOVES.put(Team.BLACK, blackPawnMoves);
+
+    }
+
+
 }
