@@ -15,4 +15,8 @@ public Player(Team team)
     public void setTeam(Team team) {
         this.team = team;
     }
+    
+    public void makeMove(Board board, Move move)
+    {
+    }
 }
